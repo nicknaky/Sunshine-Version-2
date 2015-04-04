@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.android.sunshine.app.data;
+package com.mycompany.sunshine.data;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -27,10 +27,10 @@ import android.text.format.Time;
 public class WeatherContract {
 
     // The "Content authority" is a name for the entire content provider, similar to the
-    // relationship between a domain name and its website.  A convenient string to use for the
+    // relationship between a domain name and its website. A convenient string to use for the
     // content authority is the package name for the app, which is guaranteed to be unique on the
     // device.
-    public static final String CONTENT_AUTHORITY = "com.example.android.sunshine.app";
+    public static final String CONTENT_AUTHORITY = "com.mycompany.sunshine";
 
     // Use CONTENT_AUTHORITY to create the base of all URI's which apps will use to contact
     // the content provider.
@@ -40,7 +40,7 @@ public class WeatherContract {
     // For instance, content://com.example.android.sunshine.app/weather/ is a valid path for
     // looking at weather data. content://com.example.android.sunshine.app/givemeroot/ will fail,
     // as the ContentProvider hasn't been given any information on what to do with "givemeroot".
-    // At least, let's hope not.  Don't be that dev, reader.  Don't be that dev.
+    // At least, let's hope not. Don't be that dev, reader. Don't be that dev.
     public static final String PATH_WEATHER = "weather";
     public static final String PATH_LOCATION = "location";
 
@@ -68,12 +68,12 @@ public class WeatherContract {
         // Table name
         public static final String TABLE_NAME = "location";
 
-        // The location setting string is what will be sent to openweathermap
-        // as the location query.
+        //Location Setting string is what will be sent to openweathermap
+        // as the location query
         public static final String COLUMN_LOCATION_SETTING = "location_setting";
 
-        // Human readable location string, provided by the API.  Because for styling,
-        // "Mountain View" is more recognizable than 94043.
+        //Human readable location string, provided by the API. Because "Mountain View" is more recognizable
+        //than 94043
         public static final String COLUMN_CITY_NAME = "city_name";
 
         // In order to uniquely pinpoint the location on the map when we launch the
@@ -131,8 +131,8 @@ public class WeatherContract {
         }
 
         /*
-            Student: This is the buildWeatherLocation function you filled in.
-         */
+        Student: Fill in this buildWeatherLocation function
+        */
         public static Uri buildWeatherLocation(String locationSetting) {
             return CONTENT_URI.buildUpon().appendPath(locationSetting).build();
         }
